@@ -109,4 +109,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python-%{name}
 %defattr(-,root,root)
-%py_puresitedir/pyatspi/
+%py_platsitedir/pyatspi/
