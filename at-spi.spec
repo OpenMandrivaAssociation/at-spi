@@ -3,7 +3,7 @@
 
 Summary: GNOME Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.18.1
+Version: 1.19.3
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
@@ -14,6 +14,7 @@ BuildRequires:	gtk-doc >= 0.9
 Buildrequires:	libbonobo2_x-devel >= 1.107.0
 BuildRequires:  atk-devel >= 1.12.0
 BuildRequires:	libgail-devel >= 1.3.0
+BuildRequires:	python-devel
 BuildRequires:  perl-XML-Parser
 BuildRequires:	libxtst-devel
 #gw work around libtool dependancy problem
@@ -47,6 +48,15 @@ Requires:   libgail-devel
 %description -n %{lib_name}-devel
 This is the Early Access Release of the Gnome Accessibility Project's
 Assistive Technology Service Provider Interface.
+
+%package -n python-%name
+Group: Development/Python
+Summary: Python bindings for AT-SPI
+%description -n python-%name
+This is the Early Access Release of the Gnome Accessibility Project's
+Assistive Technology Service Provider Interface. 
+
+Install this package to use AT-SPI from Python.
 
 
 %prep
@@ -96,3 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/*.la
 %{_includedir}/*
 %{_libdir}/pkgconfig/*
+
+%files -n python-%{name}
+%defattr(-,root,root)
+%py_puresitedir/pyatspi/
