@@ -103,7 +103,8 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root)
-%doc %{_datadir}/gtk-doc/html/* installed-docs/*
+%doc %{_datadir}/gtk-doc/html/* 
+%doc installed-docs/*
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_includedir}/*
