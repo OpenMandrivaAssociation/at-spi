@@ -69,7 +69,7 @@ Install this package to use AT-SPI from Python.
 %make
 
 %install
-rm -rf $RPM_BUILD_ROOT
+rm -rf $RPM_BUILD_ROOT installed-docs
 
 %makeinstall_std
 
@@ -78,6 +78,8 @@ rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/*.la \
   $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
 
 %find_lang %name
+
+mv %buildroot%_datadir/doc/%name-%version/ installed-docs
 
 %clean
 rm -rf $RPM_BUILD_ROOT
@@ -101,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n %{lib_name}-devel
 %defattr(-,root,root)
-%doc %{_datadir}/gtk-doc/html/*
+%doc %{_datadir}/gtk-doc/html/* installed-docs/*
 %{_libdir}/*.so
 %{_libdir}/*.la
 %{_includedir}/*
