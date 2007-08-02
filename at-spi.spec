@@ -4,8 +4,10 @@
 Summary: GNOME Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.19.5
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# (fc) 1.19.5-2mdv fix locking (GNOME bug #462412) (SVN)
+Patch0: at-spi-1.19.5-fixlock.patch
 License: LGPL
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -61,6 +63,7 @@ Install this package to use AT-SPI from Python.
 
 %prep
 %setup -q
+%patch0 -p1 -b .fixlock
 
 %build
 
