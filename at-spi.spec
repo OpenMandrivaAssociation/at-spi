@@ -1,13 +1,12 @@
 %define lib_major	0
 %define lib_name	%mklibname %{name} %{lib_major}
+%define develname	%mklibname -d %{name}
 
 Summary: GNOME Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.19.5
-Release: %mkrel 2
+Version: 1.20.0
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-# (fc) 1.19.5-2mdv fix locking (GNOME bug #462412) (SVN)
-Patch0: at-spi-1.19.5-fixlock.patch
 License: LGPL
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -38,7 +37,7 @@ Conflicts:	at-spi < 1.7.14-3mdv
 This is the Early Access Release of the Gnome Accessibility Project's
 Assistive Technology Service Provider Interface.
 
-%package -n %{lib_name}-devel
+%package -n %develname
 Summary:	Static libraries, include files for at-spi
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
@@ -46,8 +45,9 @@ Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}-%{release}
 Requires:   libbonobo2_x-devel
 Requires:   libgail-devel
+Obsoletes: %mklibname -d %{name} 0
 
-%description -n %{lib_name}-devel
+%description -n %develname
 This is the Early Access Release of the Gnome Accessibility Project's
 Assistive Technology Service Provider Interface.
 
@@ -63,7 +63,6 @@ Install this package to use AT-SPI from Python.
 
 %prep
 %setup -q
-%patch0 -p1 -b .fixlock
 
 %build
 
@@ -104,7 +103,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/orbit-2.0/*.so
 %{_libdir}/bonobo/servers/*
 
-%files -n %{lib_name}-devel
+%files -n %develname
 %defattr(-,root,root)
 %doc %{_datadir}/gtk-doc/html/* 
 %doc installed-docs/*
