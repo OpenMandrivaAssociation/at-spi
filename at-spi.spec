@@ -10,6 +10,7 @@ Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz
 License: LGPL
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
+BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk-doc >= 0.9
 Buildrequires:	libbonobo2_x-devel >= 1.107.0
 BuildRequires:  atk-devel >= 1.12.0
