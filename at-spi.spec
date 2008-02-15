@@ -2,11 +2,13 @@
 %define lib_name	%mklibname %{name} %{lib_major}
 %define develname	%mklibname -d %{name}
 
-Summary: GNOME Assistive Technology Service Provider Interface
+Summary: Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.21.5
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# (fc) 1.21.5-2mdv add API/fixes to pyatspi (SVN)
+Patch0: at-spi-1.21.5-pyatspisvn.patch
 License: LGPL
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -22,8 +24,10 @@ BuildRequires:	libxtst-devel
 BuildRequires:	libsm-devel
 
 %description
-This is the Early Access Release of the Gnome Accessibility Project's
-Assistive Technology Service Provider Interface.
+at-spi allows assistive technologies to access GTK-based
+applications. Essentially it exposes the internals of applications for
+automation, so tools such as screen readers, magnifiers, or even
+scripting interfaces can query and interact with GUI controls.
 
 %package -n %{lib_name}
 Summary:	GNOME Assistive Technology Service Provider Interface
@@ -34,8 +38,10 @@ Requires:	%{name} >= %{version}-%{release}
 Conflicts:	at-spi < 1.7.14-3mdv
 
 %description -n %{lib_name}
-This is the Early Access Release of the Gnome Accessibility Project's
-Assistive Technology Service Provider Interface.
+at-spi allows assistive technologies to access GTK-based
+applications. Essentially it exposes the internals of applications for
+automation, so tools such as screen readers, magnifiers, or even
+scripting interfaces can query and interact with GUI controls.
 
 %package -n %develname
 Summary:	Static libraries, include files for at-spi
@@ -48,21 +54,18 @@ Requires:   libgail-devel
 Obsoletes: %mklibname -d %{name} 0
 
 %description -n %develname
-This is the Early Access Release of the Gnome Accessibility Project's
-Assistive Technology Service Provider Interface.
+Libraries and header files allowing compilation of apps that use at-spi.
 
 %package -n python-%name
 Group: Development/Python
 Summary: Python bindings for AT-SPI
+
 %description -n python-%name
-This is the Early Access Release of the Gnome Accessibility Project's
-Assistive Technology Service Provider Interface. 
-
-Install this package to use AT-SPI from Python.
-
+Python bindings allowing to use at-spi in python programs.
 
 %prep
 %setup -q
+%patch0 -p1 -b .pyatspisvn
 
 %build
 
