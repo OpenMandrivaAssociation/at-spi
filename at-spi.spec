@@ -5,7 +5,7 @@
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.22.0
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPL
 Url: http://developer.gnome.org/projects/gap/
@@ -29,7 +29,7 @@ scripting interfaces can query and interact with GUI controls.
 
 %package -n %{lib_name}
 Summary:	GNOME Assistive Technology Service Provider Interface
-Group:		%{group}
+Group:		System/Libraries
 
 Provides:	lib%{name} = %{version}-%{release}
 Requires:	%{name} >= %{version}-%{release}
