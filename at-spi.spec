@@ -4,10 +4,10 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.22.1
+Version: 1.23.3
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
-License: LGPL
+License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
@@ -16,7 +16,7 @@ Buildrequires:	libbonobo2_x-devel >= 1.107.0
 BuildRequires:  atk-devel >= 1.12.0
 BuildRequires:	libgail-devel >= 1.3.0
 BuildRequires:	python-devel
-BuildRequires:  perl-XML-Parser
+BuildRequires:  intltool
 BuildRequires:	libxtst-devel
 #gw work around libtool dependancy problem
 BuildRequires:	libsm-devel
