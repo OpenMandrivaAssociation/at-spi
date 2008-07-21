@@ -4,7 +4,7 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.23.3
+Version: 1.23.5
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPLv2+
