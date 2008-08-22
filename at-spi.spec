@@ -5,8 +5,10 @@
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.23.6
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# (fc) Performance improvement for FF3 (GNOME bug #350552) (Ginn Chen, Fedora)
+Patch0: at-spi-1.21.92-firefoxperf1.patch
 License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -57,12 +59,14 @@ Libraries and header files allowing compilation of apps that use at-spi.
 %package -n python-%name
 Group: Development/Python
 Summary: Python bindings for AT-SPI
+Requires: %{lib_name} >= %{version}
 
 %description -n python-%name
 Python bindings allowing to use at-spi in python programs.
 
 %prep
 %setup -q
+%patch0 -p1 -b .firefoxperf
 
 %build
 
