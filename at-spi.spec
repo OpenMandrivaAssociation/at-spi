@@ -4,7 +4,7 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.23.92
+Version: 1.24.0
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPLv2+
@@ -15,9 +15,11 @@ BuildRequires:	gtk-doc >= 0.9
 Buildrequires:	libbonobo2_x-devel >= 1.107.0
 BuildRequires:  atk-devel >= 1.12.0
 BuildRequires:	libgail-devel >= 1.3.0
+BuildRequires:	libGConf2-devel
 BuildRequires:	python-devel
 BuildRequires:  intltool
 BuildRequires:	libxtst-devel
+BuildRequires:  libxevie-devel
 #gw work around libtool dependancy problem
 BuildRequires:	libsm-devel
 
@@ -87,6 +89,11 @@ mv %buildroot%_datadir/doc/%name-%version/ installed-docs
 %clean
 rm -rf $RPM_BUILD_ROOT
 
+%post
+%post_install_gconf_schemas at-spi
+%preun
+%preun_uninstall_gconf_schemas at-spi
+
 %if %mdkversion < 200900
 %post -n %{lib_name} -p /sbin/ldconfig
 %endif
@@ -99,6 +106,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %doc README AUTHORS TODO 
 %{_datadir}/idl/*
+%_sysconfdir/gconf/schemas/at-spi.schemas
 
 %files -n %{lib_name}
 %defattr(-,root,root)
