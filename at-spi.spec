@@ -5,7 +5,7 @@
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.25.2
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
@@ -51,6 +51,7 @@ Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}-%{release}
 Requires:   libbonobo2_x-devel
 Requires:   libgail-devel
+Requires:   lbxtst-devel
 Obsoletes: %mklibname -d %{name} 0
 
 %description -n %develname
