@@ -7,6 +7,8 @@ Name: at-spi
 Version: 1.25.2
 Release: %mkrel 4
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
+# Fix a string literal error - AdamW 2008/12
+Patch0: at-spi-1.25.2-literal.patch
 License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -67,6 +69,7 @@ Python bindings allowing to use at-spi in python programs.
 
 %prep
 %setup -q
+%patch0 -p1 -b .literal
 
 %build
 
