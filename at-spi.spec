@@ -4,8 +4,8 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.26.0
-Release: %mkrel 2
+Version: 1.27.91
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
 Patch0: at-spi-1.25.2-literal.patch
@@ -109,6 +109,7 @@ rm -rf $RPM_BUILD_ROOT
 %files -f %name.lang
 %defattr(-,root,root)
 %doc README AUTHORS TODO 
+%config(noreplace) %_sysconfdir/xdg/autostart/at-spi-registryd.desktop
 %{_datadir}/idl/*
 %_sysconfdir/gconf/schemas/at-spi.schemas
 
