@@ -4,7 +4,7 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.28.1
+Version: 1.29.3
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
@@ -15,7 +15,7 @@ Group: Accessibility
 BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
 BuildRequires:	gtk-doc >= 0.9
 Buildrequires:	libbonobo2_x-devel >= 1.107.0
-BuildRequires:  atk-devel >= 1.12.0
+BuildRequires:  atk-devel >= 1.19.2
 BuildRequires:	libgail-devel >= 1.3.0
 BuildRequires:	libGConf2-devel
 BuildRequires:	python-devel
@@ -117,7 +117,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/*.so.%{lib_major}*
 %{_libexecdir}/at-spi-registryd
-%{_libdir}/gtk-2.0/modules/*.so
+%{_libdir}/gtk-2.0/modules/at-spi-corba/
 %{_libdir}/orbit-2.0/*.so
 %{_libdir}/bonobo/servers/*
 
@@ -132,4 +132,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python-%{name}
 %defattr(-,root,root)
-%py_platsitedir/pyatspi/
+%py_platsitedir/pyatspi-corba*
