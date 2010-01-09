@@ -5,10 +5,13 @@
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
 Version: 1.29.3
-Release: %mkrel 1
+Release: %mkrel 2
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
 Patch0: at-spi-1.25.2-literal.patch
+#gw: asked for by guillomovitch on IRC. We enable this (the old CORBA based
+# AT-SPI intrastructure) for now. Remove once DBUS infrastructure is done
+Patch1: at-spi-1.29.3-enable-corba-at-spi.patch
 License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -70,6 +73,7 @@ Python bindings allowing to use at-spi in python programs.
 %prep
 %setup -q
 %patch0 -p1 -b .literal
+%patch1 -p1
 
 %build
 
