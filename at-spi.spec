@@ -4,8 +4,8 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.29.3
-Release: %mkrel 2
+Version: 1.29.5
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
 Patch0: at-spi-1.25.2-literal.patch
@@ -136,4 +136,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python-%{name}
 %defattr(-,root,root)
-%py_platsitedir/pyatspi-corba*
+%py_platsitedir/pyatspi_corba
