@@ -23,6 +23,7 @@ BuildRequires:	libgail-devel >= 1.3.0
 BuildRequires:	libGConf2-devel
 BuildRequires:	python-devel
 BuildRequires:  intltool
+BuildRequires:	popt-devel
 BuildRequires:	libxtst-devel
 BuildRequires:  libxevie-devel
 #gw work around libtool dependancy problem
