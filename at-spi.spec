@@ -4,7 +4,7 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.30.0
+Version: 1.30.1
 Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
