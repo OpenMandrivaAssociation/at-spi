@@ -12,6 +12,7 @@ Patch0: at-spi-1.25.2-literal.patch
 #gw: asked for by guillomovitch on IRC. We enable this (the old CORBA based
 # AT-SPI intrastructure) for now. Remove once DBUS infrastructure is done
 Patch1: at-spi-1.29.90-enable-corba-at-spi.patch
+Patch2: at-spi-1.31.1-fix-makefile-tabs.patch
 License: LGPLv2+
 Url: http://developer.gnome.org/projects/gap/
 Group: Accessibility
@@ -73,9 +74,9 @@ Python bindings allowing to use at-spi in python programs.
 
 %prep
 %setup -q
-%patch0 -p1 -b .literal
-%patch1 -p1
-
+%apply_patches
+#gw patch3:
+autoreconf -fi
 %build
 
 %configure2_5x --enable-gtk-doc=yes
