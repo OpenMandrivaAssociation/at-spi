@@ -4,8 +4,8 @@
 
 Summary: Assistive Technology Service Provider Interface
 Name: at-spi
-Version: 1.30.1
-Release: %mkrel 2
+Version: 1.31.1
+Release: %mkrel 1
 Source0: ftp://ftp.gnome.org/pub/GNOME/sources/%{name}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
 Patch0: at-spi-1.25.2-literal.patch
@@ -88,7 +88,7 @@ rm -rf $RPM_BUILD_ROOT installed-docs
 %makeinstall_std
 
 # remove unpackaged files
-rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/*.la \
+rm -f $RPM_BUILD_ROOT%{_libdir}/gtk-2.0/modules/*/*/*.la \
   $RPM_BUILD_ROOT%{_libdir}/orbit-2.0/*.la
 
 %find_lang %name
@@ -122,7 +122,7 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 %{_libdir}/*.so.%{lib_major}*
 %{_libexecdir}/at-spi-registryd
-%{_libdir}/gtk-2.0/modules/libatk-bridge.so
+%{_libdir}/gtk-2.0/modules/at-spi-corba/modules/libatk-bridge.so
 %{_libdir}/orbit-2.0/*.so
 %{_libdir}/bonobo/servers/*
 
@@ -137,4 +137,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n python-%{name}
 %defattr(-,root,root)
-%py_platsitedir/pyatspi
+%py_platsitedir/pyatspi_corba
