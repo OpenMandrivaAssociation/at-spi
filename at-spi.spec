@@ -29,6 +29,8 @@ BuildRequires:	libxtst-devel
 BuildRequires:  libxevie-devel
 #gw work around libtool dependancy problem
 BuildRequires:	libsm-devel
+#gw needed by autoconf:
+BuildRequires:	gnome-common
 
 %description
 at-spi allows assistive technologies to access GTK-based
