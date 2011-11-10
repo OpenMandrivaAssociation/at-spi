@@ -30,7 +30,7 @@ BuildRequires:	pkgconfig(sm)
 BuildRequires:	gnome-common
 
 # md this is better than having the lib req the main pkg
-Requires:	%{lib_name} = %{version-%{release}
+Requires:	%{lib_name} = %{version}-%{release}
 
 %description
 at-spi allows assistive technologies to access GTK-based
