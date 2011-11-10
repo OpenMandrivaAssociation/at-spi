@@ -119,4 +119,4 @@ mv %{buildroot}%{_datadir}/doc/%{name}-%{version}/ installed-docs
 %{_datadir}/idl/*
 
 %files -n python-%{name}
-%{py_platsitedir}/pyatspi
+%{py_platsitedir}/pyatspi_corba
