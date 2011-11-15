@@ -5,7 +5,7 @@
 Summary:	Assistive Technology Service Provider Interface
 Name:		at-spi
 Version:	1.32.0
-Release:	5
+Release:	6
 License:	LGPLv2+
 URL:		http://developer.gnome.org/projects/gap/
 Group:		Accessibility
@@ -16,9 +16,9 @@ Patch1:		at-spi-fix-evolution-crash.patch
 
 BuildRequires:	gtk-doc >= 0.9
 BuildRequires:	intltool
-BuildRequires:	libbonobo2_x-devel >= 1.107.0
-BuildRequires:	python-devel
 BuildRequires:	pkgconfig(atk) >= 1.19.2
+BuildRequires:	pkgconfig(bonobo-activation-2.0)
+BuildRequires:	pkgconfig(libbonobo-2.0)
 BuildRequires:	pkgconfig(gail) >= 1.3.0
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(popt)
@@ -26,8 +26,7 @@ BuildRequires:	pkgconfig(xtst)
 BuildRequires:	pkgconfig(xevie)
 #gw work around libtool dependancy problem
 BuildRequires:	pkgconfig(sm)
-#gw needed by autoconf:
-BuildRequires:	gnome-common
+BuildRequires:	python-devel
 
 # md this is better than having the lib req the main pkg
 Requires:	%{lib_name} = %{version}-%{release}
@@ -41,9 +40,7 @@ scripting interfaces can query and interact with GUI controls.
 %package -n %{lib_name}
 Summary:	GNOME Assistive Technology Service Provider Interface
 Group:		System/Libraries
-
 Provides:	lib%{name} = %{version}-%{release}
-Conflicts:	at-spi < 1.7.14-3
 
 %description -n %{lib_name}
 at-spi allows assistive technologies to access GTK-based
@@ -55,9 +52,7 @@ scripting interfaces can query and interact with GUI controls.
 Summary:	Development libraries, include files for at-spi
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
-Provides:	lib%{name}-devel = %{version}-%{release}
 Requires:	%{lib_name} = %{version}-%{release}
-Obsoletes:	%mklibname -d %{name} 0
 
 %description -n %{develname}
 Libraries and header files allowing compilation of apps that use at-spi.
@@ -120,3 +115,4 @@ mv %{buildroot}%{_datadir}/doc/%{name}-%{version}/ installed-docs
 
 %files -n python-%{name}
 %{py_platsitedir}/pyatspi_corba
+
