@@ -1,5 +1,5 @@
-%define	lib_major	0
-%define	lib_name	%mklibname %{name} %{lib_major}
+%define	major	0
+%define	libname	%mklibname %{name} %{major}
 %define	develname	%mklibname -d %{name}
 
 Summary:	Assistive Technology Service Provider Interface
@@ -23,13 +23,12 @@ BuildRequires:	pkgconfig(gail) >= 1.3.0
 BuildRequires:	pkgconfig(gconf-2.0)
 BuildRequires:	pkgconfig(popt)
 BuildRequires:	pkgconfig(xtst)
-BuildRequires:	pkgconfig(xevie)
 #gw work around libtool dependancy problem
 BuildRequires:	pkgconfig(sm)
 BuildRequires:	python-devel
 
 # md this is better than having the lib req the main pkg
-Requires:	%{lib_name} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 
 %description
 at-spi allows assistive technologies to access GTK-based
@@ -37,12 +36,12 @@ applications. Essentially it exposes the internals of applications for
 automation, so tools such as screen readers, magnifiers, or even
 scripting interfaces can query and interact with GUI controls.
 
-%package -n %{lib_name}
+%package -n %{libname}
 Summary:	GNOME Assistive Technology Service Provider Interface
 Group:		System/Libraries
 Provides:	lib%{name} = %{version}-%{release}
 
-%description -n %{lib_name}
+%description -n %{libname}
 at-spi allows assistive technologies to access GTK-based
 applications. Essentially it exposes the internals of applications for
 automation, so tools such as screen readers, magnifiers, or even
@@ -52,7 +51,7 @@ scripting interfaces can query and interact with GUI controls.
 Summary:	Development libraries, include files for at-spi
 Group:		Development/GNOME and GTK+
 Provides:	%{name}-devel = %{version}-%{release}
-Requires:	%{lib_name} = %{version}-%{release}
+Requires:	%{libname} = %{version}-%{release}
 
 %description -n %{develname}
 Libraries and header files allowing compilation of apps that use at-spi.
@@ -60,7 +59,7 @@ Libraries and header files allowing compilation of apps that use at-spi.
 %package -n python-%{name}
 Group:		Development/Python
 Summary:	Python bindings for AT-SPI
-Requires:	%{lib_name} >= %{version}
+Requires:	%{libname} >= %{version}
 Conflicts:	python-pyatspi <= 0.3.90
 
 %description -n python-%{name}
@@ -102,8 +101,8 @@ mv %{buildroot}%{_datadir}/doc/%{name}-%{version}/ installed-docs
 %{_libdir}/orbit-2.0/*.so
 %{_libdir}/bonobo/servers/*
 
-%files -n %{lib_name}
-%{_libdir}/*.so.%{lib_major}*
+%files -n %{libname}
+%{_libdir}/*.so.%{major}*
 
 %files -n %{develname}
 %doc %{_datadir}/gtk-doc/html/* 
