@@ -1,0 +1,11 @@
+--- at-spi-1.25.2/test/simple-at.c	2007-06-05 00:16:54.000000000 -0700
++++ at-spi-1.25.2/test/simple-at.c.new	2008-12-26 16:05:33.000000000 -0800
+@@ -605,7 +605,7 @@
+ static void
+ _festival_write (const gchar *command_string, int fd)
+ {
+-  fprintf(stderr, command_string);
++  fprintf(stderr, "%s", command_string);
+   if (fd < 0) {
+     perror("socket");
+     return;
