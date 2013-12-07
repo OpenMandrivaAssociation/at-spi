@@ -9,7 +9,7 @@
 Summary:	Assistive Technology Service Provider Interface
 Name:		at-spi
 Version:	1.32.0
-Release:	12
+Release:	13
 License:	LGPLv2+
 Group:		Accessibility
 Url:		http://developer.gnome.org/projects/gap/
