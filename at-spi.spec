@@ -12,7 +12,7 @@ Version:	1.32.0
 Release:	17
 License:	LGPLv2+
 Group:		Accessibility
-Url:		http://developer.gnome.org/projects/gap/
+Url:		https://developer.gnome.org/projects/gap/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi/%{url_ver}/%{name}-%{version}.tar.bz2
 # Fix a string literal error - AdamW 2008/12
 Patch0:		at-spi-1.25.2-literal.patch
