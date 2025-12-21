@@ -18,6 +18,11 @@ Source0:	http://ftp.gnome.org/pub/GNOME/sources/at-spi/%{url_ver}/%{name}-%{vers
 Patch0:		at-spi-1.25.2-literal.patch
 Patch1:		at-spi-fix-evolution-crash.patch
 
+BuildRequires:	autoconf
+BuildRequires:	automake
+BuildRequires:	libtool-base
+BuildRequires:	slibtool
+BuildRequires:	make
 BuildRequires:	gtk-doc
 BuildRequires:	intltool
 BuildRequires:	pkgconfig(atk) >= 1.19.2
